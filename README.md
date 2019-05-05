@@ -1,5 +1,5 @@
 - [Servlet/JSP](#Servlet/JSP)
-    - [Tomcat Web 服务器](#Tomcat-Web-服务器)
+    - [Tomcat Web 服务器](#tomcat-web-服务器)
         - [使用Tomcat](#使用tomcat)
         - [Serlvet Hello World](#serlvet-hello-world)
             - [案例1 使用Servlet接口创建Servlet](#案例1-使用servlet接口创建servlet)
@@ -7,20 +7,20 @@
         - [使用GenericServlet创建Servlet](#使用genericservlet创建servlet)
             - [案例2 相对于实现Servlet接口 继承Generic是更简单的方式](#案例2-相对于实现Servlet接口-继承Generic是更简单的方式)
         - [使用 HttpServlet创建Servlet](#使用-httpservlet创建servlet)
-            - [案例3 继承 HttpServlet，比实现Servlet接口简单](#案例3-继承HttpServlet比实现Servlet接口简单)
+            - [案例3 继承 HttpServlet比实现Servlet接口简单](#案例3-继承HttpServlet比实现Servlet接口简单)
             - [案例4 利用网页处理get请求](#案例4-利用网页处理get请求)
             - [案例5 利用HttpServlet处理post请求](#案例5-利用httpservlet处理post请求)
             - [案例6 既能处理get也能处理post请求的Servlet](#案例6-既能处理get也能处理post请求的servlet)
-    - [HttpServletRequest](#httpservletrequest)
+    - [HttpServletRequest](#httpservletrequest)<BR>
             - [案例7 利用Request获取请求信息](#案例7-利用request获取请求信息)
-    - [HttpServletResponse](#httpservletresponse)
+    - [HttpServletResponse](#httpservletresponse)<BR>
             - [案例8 利于Response对象向客户端发送信息](#案例8-利于response对象向客户端发送信息)
-    - [处理请求参数](#处理请求参数)
-            - [案例: 获取post请求](#案例-获取post请求)
-            - [案例: 获取get请求](#案例-获取get请求)
-    - [处理多选(数组)参数 getParameterValues](#处理多选数组参数-getparametervalues)
+    - [处理请求参数](#处理请求参数)<BR>
+            - [案例: 获取post请求](#案例-获取post请求)<BR>
+            - [案例: 获取get请求](#案例-获取get请求)<BR>
+    - [处理多选(数组)参数 getParameterValues](#处理多选数组参数-getparametervalues)<BR>
             - [案例](#案例)
-    - [在Servlet中使用JDBC](#在servlet中使用jdbc)
+    - [在Servlet中使用JDBC](#在servlet中使用jdbc)<BR>
             - [案例](#案例-1)
     - [利用DAO封装数据库访问](#利用dao封装数据库访问)
 
