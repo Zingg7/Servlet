@@ -356,7 +356,7 @@ HttpServletRequest对象提供了获取get、post请求参数的方法 **getPara
 			<description></description>
 			<display-name>ListEmpServlet</display-name>
 			<servlet-name>ListEmpServlet</servlet-name>
-			<servlet-class>cn.tedu.day02.ListEmpServlet</servlet-class>
+			<servlet-class>day02.ListEmpServlet</servlet-class>
 		</servlet>
 		<servlet-mapping>
 			<servlet-name>ListEmpServlet</servlet-name>
@@ -669,7 +669,7 @@ HttpServletRequest对象提供了获取get、post请求参数的方法 **getPara
 			<description></description>
 			<display-name>ListServlet</display-name>
 			<servlet-name>ListServlet</servlet-name>
-			<servlet-class>cn.tedu.day02.ListServlet</servlet-class>
+			<servlet-class>day02.ListServlet</servlet-class>
 		</servlet>
 		<servlet-mapping>
 			<servlet-name>ListServlet</servlet-name>
@@ -679,7 +679,3 @@ HttpServletRequest对象提供了获取get、post请求参数的方法 **getPara
 8. 测试
 
 		http://localhost:8080/Servlet02/listall
-		
-
-
-	
