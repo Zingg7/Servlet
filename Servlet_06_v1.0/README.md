@@ -11,10 +11,11 @@
             - [案例4 利用网页处理get请求](#案例4-利用网页处理get请求)
             - [案例5 利用HttpServlet处理post请求](#案例5-利用httpservlet处理post请求)
             - [案例6 既能处理get也能处理post请求的Servlet](#案例6-既能处理get也能处理post请求的servlet)
-    - [HttpServletRequest](#httpservletrequest)
+    - [HttpServletRequest](#httpservletrequest)<br>
             - [案例7 利用Request获取请求信息](#案例7-利用request获取请求信息)
-    - [HttpServletResponse](#httpservletresponse)
+    - [HttpServletResponse](#httpservletresponse)<br>
             - [案例8 利于Response对象向客户端发送信息](#案例8-利于response对象向客户端发送信息)
+
 
 
 # Servlet/JSP
@@ -22,6 +23,10 @@
 ## Tomcat Web 服务器
 
 Tomcat 是一个现成Web服务器，其将HTTP通信功能都实现了，使用Tomcat只需要编写简单的Servlet就可以处理HTTP编程。
+
+原理：
+
+![](tomcat.png)
 
 ### 使用Tomcat 
 
@@ -31,7 +36,6 @@ Tomcat 是一个现成Web服务器，其将HTTP通信功能都实现了，使用
 	1. Windows释放到 D:/apache-tomcat-7.0.93
 	2. Linux 释放到 /home/soft01/apache-tomcat-7.0.93
 3. 在Eclipse中配置使用Tomcat
-	- 参考 http://doc.tedu.cn/tomcat/index.html
 4. 启动Tomcat查看 http://localhost:8080
 
 ### Serlvet Hello World
@@ -43,10 +47,10 @@ Servlet是Oralce(SUN)定义的开发规范：
 		webapp
 		  |-- WEB-INF
 		  |   |-- web.xml  (部署描述文件)配置请求与Serlvet的映射关系 
-		  |   |              /hello -> cn.tedu.day01.HelloServlet
+		  |   |              /hello -> day01.HelloServlet
 		  |   |-- lib      放置第三方的库 如：数据库驱动程序等
 		  |   |-- classes  放置自己写的，编译后的类
-		  |   |    |-- cn.tedu.day01.HelloServlet.class
+		  |   |    |-- day01.HelloServlet.class
 		  |-- index.html
 		  |-- logo.png
 
@@ -58,7 +62,7 @@ Servlet是Oralce(SUN)定义的开发规范：
 	
 		<servlet>
 			<servlet-name>hello</servlet-name>
-			<servlet-class>cn.tedu.day01.HelloServlet</servlet-class>
+			<servlet-class>day01.HelloServlet</servlet-class>
 		</servlet>
 		<servlet-mapping>
 			<servlet-name>hello</servlet-name>
@@ -108,7 +112,7 @@ Servlet是Oralce(SUN)定义的开发规范：
 		
 		  <servlet>
 		    <servlet-name>hello</servlet-name>
-		    <servlet-class>cn.tedu.day01.HelloServlet</servlet-class>
+		    <servlet-class>day01.HelloServlet</servlet-class>
 		  </servlet>
 		  <servlet-mapping>
 		    <servlet-name>hello</servlet-name>
@@ -155,7 +159,7 @@ Servlet是Oralce(SUN)定义的开发规范：
 
 		  <servlet>
 		    <servlet-name>demo1</servlet-name>
-		    <servlet-class>cn.tedu.day01.DemoServlet</servlet-class>
+		    <servlet-class>day01.DemoServlet</servlet-class>
 		  </servlet>
 		  <servlet-mapping>
 		    <servlet-name>demo1</servlet-name>
@@ -192,7 +196,7 @@ Servlet是Oralce(SUN)定义的开发规范：
 		
 		  <servlet>
 		    <servlet-name>demo2</servlet-name>
-		    <servlet-class>cn.tedu.day01.TestServlet</servlet-class>
+		    <servlet-class>day01.TestServlet</servlet-class>
 		  </servlet>
 		  <servlet-mapping>
 		    <servlet-name>demo2</servlet-name>
@@ -249,7 +253,7 @@ Servlet是Oralce(SUN)定义的开发规范：
 
 		  <servlet>
 		    <servlet-name>demo3</servlet-name>
-		    <servlet-class>cn.tedu.day01.DoPostServlet</servlet-class>
+		    <servlet-class>day01.DoPostServlet</servlet-class>
 		  </servlet>
 		  <servlet-mapping>
 		    <servlet-name>demo3</servlet-name>
@@ -293,7 +297,7 @@ Servlet是Oralce(SUN)定义的开发规范：
 
 		  <servlet>
 		    <servlet-name>demo4</servlet-name>
-		    <servlet-class>cn.tedu.day01.GetPostServlet</servlet-class>
+		    <servlet-class>day01.GetPostServlet</servlet-class>
 		  </servlet>
 		  <servlet-mapping>
 		    <servlet-name>demo4</servlet-name>
@@ -368,7 +372,7 @@ Servlet是Oralce(SUN)定义的开发规范：
 		    <description></description>
 		    <display-name>RequestDemoServlet</display-name>
 		    <servlet-name>RequestDemoServlet</servlet-name>
-		    <servlet-class>cn.tedu.day01.RequestDemoServlet</servlet-class>
+		    <servlet-class>day01.RequestDemoServlet</servlet-class>
 		  </servlet>
 		  <servlet-mapping>
 		    <servlet-name>RequestDemoServlet</servlet-name>
@@ -412,7 +416,7 @@ Servlet是Oralce(SUN)定义的开发规范：
 		    <description></description>
 		    <display-name>ResponseDemoServlet</display-name>
 		    <servlet-name>ResponseDemoServlet</servlet-name>
-		    <servlet-class>cn.tedu.day01.ResponseDemoServlet</servlet-class>
+		    <servlet-class>day01.ResponseDemoServlet</servlet-class>
 		  </servlet>
 		  <servlet-mapping>
 		    <servlet-name>ResponseDemoServlet</servlet-name>
