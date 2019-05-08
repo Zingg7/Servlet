@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>Servlet_v7.1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CookieDemo1</display-name>
+    <servlet-name>CookieDemo1</servlet-name>
+    <servlet-class>web.CookieDemo1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CookieDemo1</servlet-name>
+    <url-pattern>/demo1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CookieDemo2</display-name>
+    <servlet-name>CookieDemo2</servlet-name>
+    <servlet-class>web.CookieDemo2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CookieDemo2</servlet-name>
+    <url-pattern>/demo2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DelCookie</display-name>
+    <servlet-name>DelCookie</servlet-name>
+    <servlet-class>web.DelCookie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DelCookie</servlet-name>
+    <url-pattern>/del</url-pattern>
+  </servlet-mapping>
+</web-app>
