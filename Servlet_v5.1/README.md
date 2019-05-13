@@ -2,8 +2,8 @@
 - [Servlet](#servlet)
     - [转发和重定向的区别](#转发和重定向的区别)
             - [案例: 删除员工功能](#案例-删除员工功能)
-    - [实现修改员工信息的功能](#实现修改员工信息的功能)
-    - [更新菜单](#更新菜单)
+    - [案例: 实现修改员工信息的功能](#案例-实现修改员工信息的功能)
+    - [案例: 更新菜单](#案例-更新菜单)
 <!-- /TOC -->
 
 
@@ -67,7 +67,7 @@ public void testDeleteEmp() {
   System.out.println(n); 
 }
 ```
-3. 重构列表界面list.jsp添加 删除 功能按钮
+3. 重构列表界面list.jsp 添加 删除 功能按钮
 ```
 <table class="table table-condensed">
   <tr>
@@ -107,8 +107,8 @@ public void testDeleteEmp() {
 public class DeleteEmpServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  protected void doGet(HttpServletRequest request, 
-      HttpServletResponse response) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+  throws ServletException, IOException {
     String str = request.getParameter("empno");
     Integer empno = Integer.parseInt(str);
     EmpDao dao = new EmpDao();
@@ -141,7 +141,7 @@ public class DeleteEmpServlet extends HttpServlet {
 ```
 6. 测试
 
-## 实现修改员工信息的功能
+#### 案例: 实现修改员工信息的功能
 
 实现原理：
 
@@ -180,7 +180,7 @@ public Emp findEmpByEmpno(Integer empno) {
     DBUtil.close(conn);
   }
 }
-
+// 将当前rs中的数据映射到Emp对象中
 private Emp empMapper(ResultSet rs) throws SQLException {
   int empno=rs.getInt("empno");
   String ename=rs.getString("ename");
@@ -223,8 +223,8 @@ public void testFindEmpByEmpno() {
 public class EditEmpServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  protected void doGet(HttpServletRequest request,
-      HttpServletResponse response) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest request,HttpServletResponse response) 
+  throws ServletException, IOException {
     //获取员工编号
     String str = request.getParameter("empno");
     Integer empno = Integer.parseInt(str);
@@ -240,15 +240,14 @@ public class EditEmpServlet extends HttpServlet {
     request.setAttribute("managers", managers); 
 
     //转发到JSP显示当前被编辑员工信息
-    request.getRequestDispatcher(
-        "/WEB-INF/jsp/edit-emp.jsp")
-        .forward(request, response); 
+    request.getRequestDispatcher("/WEB-INF/jsp/edit-emp.jsp").forward(request, response); 
   }
 }
 ```
 5. 编写edit-emp.jsp 显示员工信息
 
-	> 由于edit-emp.jsp 与 add-emp.jsp 布局基本一样，可以复制add-emp.jsp再适当的修改。
+> 由于edit-emp.jsp 与 add-emp.jsp 布局基本一样，可以复制add-emp.jsp再适当的修改。
+
 ```
 <div class="row">
   <!-- left column -->
@@ -372,10 +371,7 @@ public class EditEmpServlet extends HttpServlet {
  * 更新时候，按照empno的原则进行更新
  */
 public int updateEmp(Emp emp) {
-  String sql="update emp "
-      + "set ename=?, job=?, mgr=?, "
-      + "hiredate=?, sal=?, comm=?, deptno=? "
-      + "where empno=?";
+  String sql="update emp set ename=?, job=?, mgr=? , hiredate=?, sal=?, comm=?, deptno=?, where empno=?";
   Connection conn=null;
   try {
     conn = DBUtil.getConnection();
@@ -431,13 +427,10 @@ public class UpdateEmpServlet extends HttpServlet {
       String job = request.getParameter("job");
       String strMgr = request.getParameter("mgr");
       int mgr = Integer.parseInt(strMgr);
-      String strHiredate = 
-          request.getParameter("hiredate");
-      SimpleDateFormat fmt=new SimpleDateFormat(
-          "yyyy-MM-dd");
+      String strHiredate = request.getParameter("hiredate");
+      SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd");
       Date date = fmt.parse(strHiredate);
-      java.sql.Date hiredate=new java.sql.Date(
-          date.getTime());
+      java.sql.Date hiredate=new java.sql.Date(date.getTime());
       String strSal = request.getParameter("sal");
       double sal = Double.parseDouble(strSal);
       String strComm = request.getParameter("comm");
@@ -454,8 +447,7 @@ public class UpdateEmpServlet extends HttpServlet {
       String sempno = request.getParameter("empno");
       Integer empno = Integer.parseInt(sempno);
 
-      Emp emp = new Emp(empno, ename, job, 
-          mgr, hiredate, sal, comm, deptno);
+      Emp emp = new Emp(empno, ename, job, mgr, hiredate, sal, comm, deptno);
 
       EmpDao dao = new EmpDao();
       int n = dao.updateEmp(emp);
@@ -467,11 +459,9 @@ public class UpdateEmpServlet extends HttpServlet {
       }
     }catch(Exception e) {
       e.printStackTrace();
-      request.setAttribute("msg", 
-          "更新失败"+e.getMessage()); 
+      request.setAttribute("msg", "更新失败"+e.getMessage()); 
     }
-    request.getRequestDispatcher("/WEB-INF/jsp/msg.jsp")
-      .forward(request, response); 
+    request.getRequestDispatcher("/WEB-INF/jsp/msg.jsp").forward(request, response); 
   }
 }
 ```
@@ -490,7 +480,7 @@ public class UpdateEmpServlet extends HttpServlet {
 ```
 11. 测试
 
-## 更新菜单
+#### 案例: 更新菜单
 
 1. list.jsp
 ```
