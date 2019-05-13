@@ -1,6 +1,6 @@
 <!-- TOC -->
 - [Sertlet](#sertlet)
-    - [处理请求参数-getParameter](#处理请求参数-getParameter)<BR>
+    - [处理请求参数 getParameter](#处理请求参数-getParameter)<BR>
             - [案例: 获取post请求](#案例-获取post请求)<BR>
             - [案例: 获取get请求](#案例-获取get请求)<BR>
     - [处理多选(数组)参数 getParameterValues](#处理多选数组参数-getparametervalues)<BR>
