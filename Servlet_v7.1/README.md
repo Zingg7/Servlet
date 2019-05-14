@@ -53,11 +53,11 @@
 
 ### Cookie的API
 
-		1. Cookie c=new Cookie(name,value);// name是cookie的名称,value是Cookie的值，一个Cookie对象封装了一个键值对
-		2. c.getName()
-		3. c.getValue()
-		4. response.addCookie(cookie);//将cookie存入response中
-		5. Cookie[] cs=request.getCookies();
+1. Cookie c=new Cookie(name,value);// name是cookie的名称,value是Cookie的值，一个Cookie对象封装了一个键值对
+2. c.getName()
+3. c.getValue()
+4. response.addCookie(cookie);//将cookie存入response中
+5. Cookie[] cs=request.getCookies();
 
 #### 案例：记住姓名
 ![](day07-3.png)
@@ -275,3 +275,58 @@ if ("true".equals(remname)){
 ```
 value='<%=username%>
 ```
+
+
+# 复习
+1. 会话状态管理？
+
+对用户的会话状态进行增删改查
+
+2. 为什么要有会话状态管理技术？
+
+http协议本身是无状态的、无连接的，http协议本身不能保存用户的会话状态
+
+3. Cookie
+
+将会话状态保存在浏览器的技术
+
+4. Cookie的原理
+	1. 服务器使用set-cookie的响应头将会话状态发送给浏览器进行保存
+	2. 浏览器使用cookie的请求头将保存的会话状态发送给服务器进行使用
+	
+5. Cookie的API
+```
+Cookie cookie=new Cookie(name,value);
+response.addCookie(cookie);
+cookie.getName();
+cookie.getValue();
+
+cookie.setMaxAge(int sec);//设置Cookie的存活时间
+// 如果不设置，默认是会话级别，保存在浏览器的内存中，浏览器关闭，Cookie销毁
+// 设置会后，保存在浏览器的临时文件夹中（硬盘上），浏览器多次关闭，Cookie不会销毁
+
+cookie.setPath();
+// 浏览器如何决定一次请求是否发送一个Cookie?
+// 如果一次请求的url与一个Cookie的domain+path一致，或者是该Cookie的domain+path的子路径，则本次请求携带该Cookie
+// 如果不设置，Cookie的path默认与发送它的Servlet的父路径一致
+cookie.setPath(request.getContextPath());
+
+```
+
+6. 如何删除一个Cookie？
+
+发送一个和要删除的Cookie同name,同path,同domain的Cookie,设置maxAge=0
+
+7. Cookie中的中文问题
+
+Cookie中的数据使用ASCII字符集进行传输，不能有中文，如有，会直接抛出异常 Control Character in Cookie value or attribute
+
+URLEncoder.encode(value,"utf-8");
+
+URLDecoder.decode(value,"utf-8")
+
+8. Cookie的细节
+	1. Cookie以浏览器为单位进行管理
+	2. 一个浏览器可以保存约300个Cookie
+	3. 为每个网站保存约20个Cookie
+	4. 一个Cookie的大小上限约4kb
