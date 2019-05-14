@@ -117,7 +117,8 @@ public class SessionDemo2 extends HttpServlet {
 public class CountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	throws ServletException, IOException {
 		// 有则使用，无则创建
 		HttpSession session=request.getSession();// 等同于getSession(true);
 		
@@ -155,11 +156,11 @@ public class CountServlet extends HttpServlet {
 1. 超时
 	1. 默认情况下，一个Session对象可以存活30分钟（从用户最后一次访问该Session开始算）
 	2. 可以手动指定Session的存活时间，在web.xml文件中配置，单位是分钟\
-```
-<session-config>
-	<session-timeout>30</session-timeout>
-</session-config>
-```
+
+		<session-config>
+			<session-timeout>30</session-timeout>
+		</session-config>
+
 	3. 超时时间越长，用户体验越好，服务器内存压力越大
 	4. 超时时间越短，用户体验越差，服务器内存压力越小
 
@@ -172,7 +173,8 @@ public class CountServlet extends HttpServlet {
 public class DelSessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	throws ServletException, IOException {
 		
 		HttpSession session=request.getSession(false);
 		
@@ -320,7 +322,8 @@ public class CostFilter implements Filter {
     public void destroy() {
 	}
 
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 
+    throws IOException, ServletException {
     	// 请求通过时进行计时
     	long st=System.currentTimeMillis();
     	
@@ -396,7 +399,7 @@ public class EncodingFilter implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
+	throws IOException, ServletException {
 		// 处理请求乱码
 		request.setCharacterEncoding(encode);
 
@@ -433,7 +436,8 @@ public class TimeFilter implements Filter {
 		ceil=Integer.parseInt(fConfig.getInitParameter("ceil"));
 	}
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 
+	throws IOException, ServletException {
 		// 实现图片的限时访问
 		
 		//1. 获取当前时间的分钟分量
