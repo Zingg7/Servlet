@@ -1,3 +1,9 @@
+<!-- TOC -->
+- [知识点](#知识点)
+- [案例: 实现注册,登录表单](#案例-实现注册登录表单)
+- [Servlet的生命周期](#servlet的生命周期)
+<!-- /TOC -->
+
 ## 知识点
 1. Web服务器(Tomcat)和Servlet是什么关系？
 	1. Servlet：是运行在Web服务器上的代码片段，用来处理用户的http请求，是Sun公司定义的JavaEE的组件规范
@@ -292,18 +298,16 @@ public class AddUserServlet extends HttpServlet {
 ![](day06-6.png)
 
 2. 创建的时机<br>
-		1. 默认情况：当用户第一次访问一个Servlet映射的路径时，服务器会加载对应的Servlet并实例化；后续用户多次访问同一个路径时，服务器都会使用同一个Servlet实例来响应用户的请求。这样的设计可以提高服务器的效率，节省内存
-    2. 配置
-			1. <load-on-startup>1</load-on-startup>
-			2. 如果该配置的值大于等于0，服务器启动后马上加载和实例化该Servlet
+	1. 默认情况：当用户第一次访问一个Servlet映射的路径时，服务器会加载对应的Servlet并实例化；后续用户多次访问同一个路径时，服务器都会使用同一个Servlet实例来响应用户的请求。这样的设计可以提高服务器的效率，节省内存
+	2. 配置
+		1. <load-on-startup>1</load-on-startup>
+		2. 如果该配置的值大于等于0，服务器启动后马上加载和实例化该Servlet
 
 3. 初始化
-
 	1. 当一个Servlet被实例化之后，服务器会马上调用它的init()方法，执行初始化的逻辑
 	2. init()方法默认没有任何代码，开发者如果希望Servlet被实例化之后，马上执行什么逻辑，就可以写入到init方法中
 
-4.服务
-
+4. 服务
 	1. 每当有用户请求一个Servlet，服务器都会调用该Servlet的service()方法来处理用户的本次请求
 	2. servcie()在Servlet的生命周期中会被调用多次
 
