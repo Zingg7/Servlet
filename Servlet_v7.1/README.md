@@ -1,20 +1,37 @@
+<!-- TOC -->
+- [会话状态管理](#会话状态管理)
+- [Cookie](#cookie)
+    - [Cookie的原理](#cookie的原理)
+    - [Cookie的API](#cookie的api)
+        - [案例：记住姓名](#案例记住姓名)
+        - [案例: 记住访问时间](#案例-记住访问时间)
+    - [Cookie的存活时间](#cookie的存活时间)
+    - [Cookie的路径问题](#cookie的路径问题)
+    - [浏览器如何识别一个Cookie](#浏览器如何识别一个cookie)
+    - [如何删除一个Cookie](#如何删除一个cookie)
+    - [Cookie中的中文问题](#cookie中的中文问题)
+    - [关于Cookie的细节](#关于cookie的细节)
+        - [练习：实现记住用户名用例](#练习实现记住用户名用例)
+<!-- /TOC -->
+
+
 ![](day07-1.png)
 
 ## 会话状态管理
 
-1) 会话：
+1. 会话：
 可以理解为客户端和服务器的一次对话
 用户为实现一个目标，从打开客户端开始，到关闭客户端为止，与服务器进行的多次请求和响应，统称为一次会话。
 一次会话中可以包含多次的请求和响应。
 
-2) 会话状态：
+2. 会话状态：
 一次会话过程中产生的临时数据
 ![](day07-2.png)
 
-3) 会话状态管理：
+3. 会话状态管理：
 对会话状态进行保存、删除、更新等操作的技术
 
-4) 为什么要有会话状态管理？
+4. 为什么要有会话状态管理？
 
       **Http协议**
 
@@ -24,7 +41,7 @@
 
         2）需要提供额外的技术，在http协议下实现会话状态管理
 
-5) 常用的会话状态管理技术：Cookie，Session
+5. 常用的会话状态管理技术：Cookie，Session
 
 
 ## Cookie
@@ -207,11 +224,11 @@ public class DelCookie extends HttpServlet {
 
 #### 练习：实现记住用户名用例
 ![](day07-5.png)
-
-		1. 类似<input type="text / password"><textarea>，如果用户不输入任何内容，就提交表单，服务器收到的值是 ""，不是null
-			request.getParameter();
-		2. 类似<input type="checkbox"><select><opiton>，让用户去选择的，如果用户什么都不选，就提交表单，服务器收到的值是null
-
+```
+1. 类似<input type="text / password"><textarea>，如果用户不输入任何内容，就提交表单，服务器收到的值是 ""，不是null
+	request.getParameter();
+2. 类似<input type="checkbox"><select><opiton>，让用户去选择的，如果用户什么都不选，就提交表单，服务器收到的值是null
+```
 1. 在LoginServlet中实现记住用户名功能
 ```
 // 接受请求参数
