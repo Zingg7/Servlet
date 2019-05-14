@@ -1,9 +1,9 @@
 <!-- TOC -->
 - [Web项目中的路径问题](#web项目中的路径问题)
-- [ServletRequest和HttpServletRequest的关系](#servletrequest和httpservletrequest的关系)
-- [JSP中的页面复用](#jsp中的页面复用)<br>
-        - [案例: 过滤器](#案例-过滤器)
-- [ServletContext (Servlet上下文)](#servletcontext-servlet上下文)
+	- [ServletRequest和HttpServletRequest的关系](#servletrequest和httpservletrequest的关系)
+	- [JSP中的页面复用](#jsp中的页面复用)<br>
+    	    - [案例: 过滤器](#案例-过滤器)
+	- [ServletContext (Servlet上下文)](#servletcontext-servlet上下文)
 - [Listener（监听器）](#listener监听器)
 <!-- /TOC -->
 
@@ -13,7 +13,7 @@
 ![](day09-1.png)
 ![](day09-6.png)
 
-##  Web项目中的路径问题
+###  Web项目中的路径问题
 1. URL
 	1. 统一资源定位符：用于唯一定位互联网上的一个资源
 	2. 格式： 协议 :// 域名(ip) : 端口号 /项目路径/资源路径
@@ -54,7 +54,7 @@
 <base href="<%=basePath %>">
 ```
 
-## ServletRequest和HttpServletRequest的关系
+### ServletRequest和HttpServletRequest的关系
 1. HttpServletRequest继承了ServletRequest
 2. HttpServletRequest额外添加了一些处理http协议相关的方法
 	1. request.getMethod(); // 获取用户的请求方式(7种，http)
@@ -65,7 +65,7 @@
 
 
 
-## JSP中的页面复用
+### JSP中的页面复用
 1. 可以在一个jsp中引入另一个jsp中的内容
 2. 这样可以实现页面的复用，提高项目的可维护性
 3. 实现方式
@@ -90,7 +90,7 @@ request.getSession().setAttribute("user", username);
 
 
 
-## ServletContext (Servlet上下文)
+### ServletContext (Servlet上下文)
 1. 可以理解为Servlet运行的背景（环境）
 2. ServletContext指的就是Tomcat
 3. 每当Tomcat加载完一个项目之后，会马上创建一个ServletContext对象，在内存中唯一代表该项目
